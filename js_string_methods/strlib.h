@@ -14,11 +14,11 @@ int endsWith2(char* str1, char* str2, size_t ind);
 int includes1(char* str1, char* str2);
 int includes2(char* str1, char* str2, size_t ind);
 
-size_t indexOf1(char* str1, char* str2);
-size_t indexOf2(char* str1, char* str2, size_t ind);
+int indexOf1(char* str1, char* str2);
+int indexOf2(char* str1, char* str2, size_t ind);
 
-size_t lastIndexOf1(char* str1, char* str2);
-size_t lastIndexOf2(char* str1, char* str2, size_t ind);
+int lastIndexOf1(char* str1, char* str2);
+int lastIndexOf2(char* str1, char* str2, size_t ind);
 
 void padEnd1(char* str, size_t cnt);
 void padEnd2(char* str, size_t cnt, char sym);

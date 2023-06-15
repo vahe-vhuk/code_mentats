@@ -180,7 +180,7 @@ int lastIndexOf1(char* str1, char* str2)
 	size_t len = 0;
 	for (; str1[len]; ++len);
 
-	return lastIndexOf1(str1, str2, len);
+	return lastIndexOf2(str1, str2, len);
 }
 
 void padEnd2(char* str, size_t cnt, char sym)
@@ -197,16 +197,72 @@ void padEnd2(char* str, size_t cnt, char sym)
 	str[cnt] = '\0';
 }
 
-int padEnd1(char* str,  size_t cnt)
+void padEnd1(char* str,  size_t cnt)
 {
 	padEnd2(str, cnt, ' ');
 }
 
+void padStart2(char* str, size_t cnt, char sym)
+{
+	size_t len;
+	for (; str[len]; ++len);
 
+	if (len >= cnt) {
+		return;
+	}
+	int diff = cnt - len;
+	for (size_t i = cnt; i >= diff; --i) {
+		str[i] = str[i - diff];
+	}
+	for (size_t i = 0; i < diff; ++i) {
+		str[i] = sym;
+	}
+}
 
+void padStart1(char* str, size_t cnt)
+{
+	padStart2(str, cnt, ' ');
+}
 
+void repeat(char* str, char* res, size_t cnt)
+{
+	size_t len = 0;
+	for (; str[len]; ++len);
+	for (size_t i = 0; i < cnt; ++i) {
+		for (size_t j = 0; j < len; ++j) {
+			res[i*len + j] = str[j];
+		}
+	}
+	res[cnt * len] = '\0';
+}
 
+void slice2(char* str, char* res, size_t i1,  size_t i2)
+{
+	for (size_t i = i1; i < i2; ++i) {
+		res[i - i1] = str[i];
+	}
+}
 
+void slice1(char* str, char* res, size_t i1)
+{
+	size_t len = 0;
+	for (; str[len]; ++len);
+	slice2(str, res, i1, len);
+}
+
+void split(char* str, char** res, char sep)
+{
+	size_t i = 0;
+	size_t j = 0;
+
+	for (char* it = str; *it; ++it) {
+		if (*it == sep) {
+			++i;
+			continue;
+		}
+		res[i][j++] = *it;
+	}
+}
 
 
 
