@@ -1,11 +1,11 @@
 
-#Pyson Parser
+# Pyson Parser
 
 Pyson Parser is a Python program that allows you to parse and manipulate JSON-like files with the extension ".pyson". This program provides a 
 simple command-line interface for interacting with the JSON-like data. You can retrieve values, update existing keys or create new ones, 
 delete keys and their values, and save changes to the file.
 
-#Usage
+# Usage
 To run the Pyson Parser, follow these steps:
 
 Make sure you have Python 3 installed on your system.
@@ -22,7 +22,7 @@ it will be created automatically. Please provide the file name with the ".pyson"
 
 Once the file is loaded or created, you can start entering commands.
 
-#Commands
+# Commands
 
 The Pyson Parser supports the following commands:
 
@@ -77,7 +77,7 @@ Here's an example of a valid ".pyson" file:
   }
 }
 
-#Notes
+# Notes
 
 "The Pyson Parser assumes that the JSON file is valid and follows the correct syntax.
 If the file contains syntax errors, the program may not work as expected.
