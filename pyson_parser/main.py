@@ -54,7 +54,7 @@ def command_mode(file_name):
     while True:
         pprint(obj.__dict__)
         
-        comm = input("Enter the command:\n")
+        comm = input("Enter the command (type 'exit' to save and exit):\n")
         check_command(comm)
 
 
