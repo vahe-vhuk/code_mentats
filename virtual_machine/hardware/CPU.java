@@ -240,13 +240,13 @@ public class CPU {
 
     private void jl(byte a) {
         if ((this.za & 2) == 2) {
-            this.za = (byte)(a - 1);
+            this.gh = (byte)(a - 1);
         }
     }
 
     private void je(byte a) {
         if ((this.za & 4) == 4) {
-            this.za = (byte)(a - 1);
+            this.gh = (byte)(a - 1);
         }
     }
 
