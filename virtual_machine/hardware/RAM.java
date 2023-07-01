@@ -15,12 +15,17 @@ public class RAM {
         return this.memory;
     }
 
-    public byte get(int address) {
-        return this.memory[address];
+    public byte[] get(int address) {
+        byte[] res = new byte[3];
+        address *= 3;
+        res[0] = this.memory[address];
+        res[1] = this.memory[address + 1];
+        res[2] = this.memory[address + 2];
+        return res;
     }
 
     public void set(int address, byte value) {
-        this.memory[address] = value;
+        this.memory[address * 3] = value;
     }
 
     public void dump_memory() {

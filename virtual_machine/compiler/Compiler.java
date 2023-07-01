@@ -30,9 +30,9 @@ public class Compiler {
             {"not", (byte)7},
             {"cmp", (byte)8},
             {"jmp", (byte)9},
-            {"gh", (byte)10},
-            {"gl", (byte)11},
-            {"ge", (byte)12},
+            {"jg", (byte)10},
+            {"jl", (byte)11},
+            {"je", (byte)12},
     }).collect(Collectors.toMap(data->(String)data[0], data->(Byte)data[1]));
 
     private final HashMap<String, Byte> register_map = (HashMap<String, Byte>) Stream.of(new Object[][] {
@@ -104,6 +104,7 @@ public class Compiler {
             line = line.replace(",", "");
             this.compiled_data.addAll(encrypt(line));
         }
+
     }
 
     private ArrayList<Byte> encrypt(String str) {
@@ -116,10 +117,10 @@ public class Compiler {
             res.add(this.register_map.get(line[1]));
         }
         else  if (Checker.is_address(line[1])){
-            res.add((byte)(Byte.valueOf(line[1].substring(1, line[1].length() - 1)) * 3));
+            res.add(Byte.valueOf(line[1].substring(1, line[1].length() - 1)));
         }
         else { // Checker.is_flag(line[1])
-            res.add((byte)-this.flag_map.get(line[1]));
+            res.add((byte)(-this.flag_map.get(line[1]) - 1));
         }
         if (line.length == 2) {
             res.add((byte) 0);
@@ -130,10 +131,10 @@ public class Compiler {
             res.add(this.register_map.get(line[2]));
         }
         else  if (Checker.is_address(line[2])){
-            res.add((byte)(Byte.valueOf(line[2].substring(1, line[2].length() - 1)) * 3));
+            res.add(Byte.valueOf(line[2].substring(1, line[2].length() - 1)));
         }
         else { //Checker.is_all_digit(line[2])
-            res.add((byte)-Byte.valueOf(line[2]));
+            res.add((byte)(-Byte.valueOf(line[2]) - 1));
         }
 
         return res;

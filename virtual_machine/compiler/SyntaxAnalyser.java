@@ -85,6 +85,9 @@ public class SyntaxAnalyser {
         if (!(cond2_1 || cond2_2 || cond2_3)) {
             return false;
         }
+        if (cond2_1 && cond2_3) {
+            return true;
+        }
         if (cond1_2) {
             return true;
         }
