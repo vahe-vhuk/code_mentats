@@ -139,10 +139,10 @@ public class CPU {
         }
         switch (address) {
             case 32 : break;
-            case 33 : this.ben = this.ayb;
-            case 34 : this.gim = this.ayb;
-            case 35 : this.da = this.ayb;
-            case 36 : this.ech = this.ayb;
+            case 33 : this.ben = this.ayb;break;
+            case 34 : this.gim = this.ayb;break;
+            case 35 : this.da = this.ayb;break;
+            case 36 : this.ech = this.ayb;break;
         };
     }
 
